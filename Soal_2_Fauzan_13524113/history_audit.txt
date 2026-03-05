@@ -1,0 +1,30 @@
+  790  make clean
+  791  make run
+  792  make clean
+  793  make run
+  794  make clean
+  795  make run
+  796  sudo apt install
+  797  sudo apt update
+  798  apt list --upgradable
+  799  sudo apt upgrade
+  800  sudo apt install
+  801  sudo apt install software-properties-common
+  802  sudo apt update && sudo apt install curl -y
+  803  export ROS_APT_SOURCE_VERSION=$(curl -s https://api.github.com/repos/ros-infrastructure/ros-apt-source/releases/latest | grep -F "tag_name" | awk -F\" '{print $4}')
+  804  curl -L -o /tmp/ros2-apt-source.deb "https://github.com/ros-infrastructure/ros-apt-source/releases/download/${ROS_APT_SOURCE_VERSION}/ros2-apt-source_${ROS_APT_SOURCE_VERSION}.$(. /etc/os-release && echo ${UBUNTU_CODENAME:-${VERSION_CODENAME}})_all.deb"
+  805  sudo dpkg -i /tmp/ros2-apt-source.deb
+  806  sudo apt update
+  807  sudo apt upgrade
+  808  apt list --upgradable
+  809  sudo apt upgrade
+  810  sudo apt install ros-humble-desktop
+  811  install package build-essential
+  812  which g++ > compiler_trace.log && g++ --version | head -n 1 >> compiler_trace.log
+  813  mkdir ~/recovery_ops
+  814  cd ~/recovery_ops
+  815  wget -O system_raw.txt https://raw.githubusercontent.com/aryadiiptaa/YESS/refs/heads/main/system_raw.txt
+  816  head -n 1260 system_raw.txt | tail -n 11 > recovered_sector.txt
+  817  rm system_raw.txt
+  818  code .
+  819  history | tail -n 30 > history_audit.txt
